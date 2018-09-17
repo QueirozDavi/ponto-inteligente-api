@@ -1,12 +1,12 @@
 package com.qtech.pontointeligente.api.entities;
 
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.Transient;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -98,6 +98,7 @@ public class Funcionario implements Serializable{
 		return valorHora;
 	}
 	
+	@Transient
 	public Optional<BigDecimal> getValorHoraOpt(){
 		return Optional.ofNullable(valorHora);
 	}
@@ -111,6 +112,7 @@ public class Funcionario implements Serializable{
 		return qtdHorasTrabalhoDia;
 	}
 	
+	@Transient
 	public Optional<Float> getQtdHorasTrabalhoDiaOpt(){
 		return Optional.ofNullable(qtdHorasTrabalhoDia);
 	}
@@ -124,16 +126,17 @@ public class Funcionario implements Serializable{
 		return qtdHorasAlmoco;
 	}
 	
+	@Transient
 	public Optional<Float> getQtdHorasAlmocoOpt(){
 		return Optional.ofNullable(qtdHorasAlmoco);
 	}
-
+	
 	public void setQtdHorasAlmoco(Float qtdHorasAlmoco) {
 		this.qtdHorasAlmoco = qtdHorasAlmoco;
 	}
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name = "qtd_horas_almoco", nullable = false)
+	@Column(name = "perfil", nullable = false)
 	public PerfilEnum getPerfil() {
 		return perfil;
 	}
